@@ -2,10 +2,14 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from dotenv import load_dotenv
+import os
+
 def send_email(subject, message, to_email):
-    from_email = "abadis1221@gmail.com"
+    load_dotenv()
+    from_email = os.getenv("FROM_EMAIL")
     # Generate it on and named it Mail if you use mail https://myaccount.google.com/apppasswords
-    app_password = "hhasqwgorhzpqdoi"  # NOT your Gmail login password
+    app_password = os.getenv("APP_PASSWORD")
 
     # Create email
     msg = MIMEMultipart()
